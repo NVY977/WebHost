@@ -126,7 +126,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 ALLOWED_HOSTS = ['*']
 X_FRAME_OPTIONS = '*'
