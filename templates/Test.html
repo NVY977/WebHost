@@ -1,0 +1,11 @@
+<input type="checkbox" class="rememberMe">
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+    let checkbox = document.querySelector('.rememberMe');
+    if(localStorage.getItem('onChecked') === 'true'){
+        checkbox.checked = true;
+    }
+    checkbox.addEventListener('click', function(){
+        localStorage.setItem('onChecked', 'true');
+    });
+});</script>

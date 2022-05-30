@@ -1,0 +1,139 @@
+<!DOCTUPE html>
+{% load static %}
+<html lang="ru">
+    <head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="css/styles.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Shop</title>
+    </head>
+    <body>
+        
+        <header class="header">
+            <div class = "container">
+                <div class="header_inner">
+                    <div class="logo">
+                        <h1>NVY</h1>
+                    </div>
+                    <nav class="nav">
+                        <a class = "nav_link" href="AboutUs.html">О нас</a>
+                        <a class = "nav_link" href="Shop.html">Магазин</a>
+                        <a class = "nav_link" href="Contacts.html">Контакты</a>
+                        <a class = "nav_link" href="index.html">Блог</a>
+                        <a class = "nav_link_login" href="Login.html">Войти</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <div class="intro">
+            <div class="container">
+                <div class="intro_inner">
+                    <h1 class="intro_title">Store</h1>
+                </div>
+            </div>
+        </div>
+        
+ 
+        <section class = "section">
+            <div class="conteiner">
+                <div class = "clothes">
+                    <div class = "clothes_item">
+                        <div class="clothes_img">
+                            <img src="{% static 'images/block_1_1.png' %}" alt="Мантия">
+                        </div>
+                        <div class="clothes_txt">
+                            <br> <b>Цена:    </b> 100$
+                            <br> <b>Состав:  </b>Хлопок 100%
+                            <br> <b>Описание:</b> Черный (однотонный)
+                        </div>
+                    </div>
+                    <div class = "clothes_item">
+                        <div class="clothes_img">
+                            <img src="{% static 'images/block_1_2.png' %}" alt="Мантия">
+                        </div>
+                        <div class="clothes_txt">
+                            <br> <b>Цена:    </b> 100$
+                            <br> <b>Состав:  </b>Хлопок 100%
+                            <br> <b>Описание:</b> Черный (однотонный)
+                        </div>
+                    </div>
+                    <div class = "clothes_item">
+                        <div class="clothes_img">
+                            <img src="{% static 'images/block_1_3.png' %}" alt="Мантия">
+                        </div>
+                        <div class="clothes_txt">
+                            <br> <b>Цена:    </b> 100$
+                            <br> <b>Состав:  </b>Хлопок 100%
+                            <br> <b>Описание:</b> Черный (однотонный)
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div><!--!container -->
+            <div class="conteiner">
+                <div class = "clothes">
+                    <div class = "clothes_item">
+                        <div class="clothes_img">
+                            <img src="{% static 'images/block_1_1.png' %}"  alt="Мантия">
+                        </div>
+                        <div class="clothes_txt">
+                            <br> <b>Цена:    </b> 100$
+                            <br> <b>Состав:  </b>Хлопок 100%
+                            <br> <b>Описание:</b> Черный (однотонный)
+                        </div>
+                    </div>
+                    <div class = "clothes_item">
+                        <div class="clothes_img">
+                            <img src="{% static 'images/block_1_2.png' %}"  alt="Мантия">
+                        </div>
+                        <div class="clothes_txt">
+                            <br> <b>Цена:    </b> 100$
+                            <br> <b>Состав:  </b>Хлопок 100%
+                            <br> <b>Описание:</b> Черный (однотонный)
+                        </div>
+                    </div>
+                    <div class = "clothes_item">
+                        <div class="clothes_img">
+                            <img src="{% static 'images/block_1_3.png' %}"  alt="Мантия">
+                        </div>
+                        <div class="clothes_txt">
+                            <br> <b>Цена:    </b> 100$
+                            <br> <b>Состав:  </b>Хлопок 100%
+                            <br> <b>Описание:</b> Черный (однотонный)
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div><!--!container -->
+        </section>
+        
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_inner">
+                    <div class="footer_col">
+                        <div class="footer_logo">NVY</div>
+                    </div>
+                    <div class="footer_text">Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса////Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса</div>
+                </div>
+                <div class="footer_social">
+                    <div class="footer_social_header">
+                    <b>15k</b> followers
+                    </div>
+                    <div class="footer_social_content">
+                        Follow us:
+                        <a href = "#">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

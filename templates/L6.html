@@ -1,0 +1,79 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function(){
+   // localStorage.clear()
+    if (localStorage.getItem('visits') == null)
+    {
+      // Добавляем или изменяем значение:
+      localStorage.setItem('visits', 0)
+    }
+    else{
+      // Выводим его в консоль:
+      var langSelected = localStorage.getItem('lang');
+      var lastVisitDate = localStorage.getItem('visitDate');
+    }
+    var visited = parseInt(localStorage.getItem('visits'));
+    visited += 1;
+    localStorage.setItem('visits', visited);
+    alert("Кол-во посещений:" + visited);
+
+    var button = document.querySelector("#btn");
+    button.addEventListener("click", function(){
+      var selectedLang = $('#langSelect').val();
+      localStorage.setItem('lang', selectedLang);
+      localStorage.setItem('visitDate', new Date());
+    });
+  });
+</script>
+
+<!DOCTUPE html>
+{% load static %}
+<html>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
+<header class="header">
+  <div class = "container">
+      <div class="header_inner">
+          <div class="logo">
+              <h1>NVY</h1>
+          </div>
+          <nav class="nav">
+              <a class = "nav_link" href="AboutUs.html">О нас</a>
+              <a class = "nav_link" href="Shop.html">Магазин</a>
+              <a class = "nav_link" href="Contacts.html">Контакты</a>
+              <a class = "nav_link" href="index.html">Блог</a>
+              <a class = "nav_link_login" href="Login.html">Войти</a>
+          </nav>
+      </div>
+  </div>
+</header>
+
+<div class="intro">
+    <div class="container">
+        <div class="intro_inner">
+             <h1 class="intro_title">Local Storage</h1>
+         </div>
+    </div>
+ </div>
+  
+ <section class = "section">
+  <div class="conteiner">
+      <div class="section_header">
+          <h2 class="section_title">Предпочитаемый язык</h2>
+          <label>Выберите язык : </label>
+          <select style="" id="langSelect">
+              <option>rus</option>
+              <option>eng</option>
+          </select>
+          <div>
+              <button id="btn">Отправить</button>
+          </div>
+      </div>
+  </div>
+</section>
+</html>

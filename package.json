@@ -1,0 +1,16 @@
+{
+  "name": "WEBLab41",
+  "version": "1.0.0",
+  "description": "- Fork this template to get started - Simply hit run to start the server - The server will autoreload as needed. You don't need to restart the server manually.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "node-telegram-bot-api": "0.56.0"
+  }
+}

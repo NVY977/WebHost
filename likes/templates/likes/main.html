@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+  {% for obj in allPosts %}
+     <h1>{{ obj.title }}</h1>
+     <p>{{ obj.body }}</p>
+     <form action="{% url 'likes:like-post' %}" method='POST' class='like-form' id='{{ obj.id }}'>
+       {% csrf_token %}
+       <input type='hidden' name='post_id' value="{{ obj.id }}">
+       <button type="submit" class="ui button like-btn{{obj.id}}" id = "but">
+            {% if user not in obj.liked.all %}
+                <div class = "like">                
+                  Like
+                </div>
+            {% else %}
+                Unlike
+            {% endif %}
+        </button>
+        <div class="ui grid">
+            <div class="column">
+                <div class="like-count{{obj.id}}"> {{obj.num_likes}}</div>
+          </div>
+        </div>
+     </form>
+  {% endfor %}
+{% endblock content %}
+
+{% block scripts %} 
+    <script>
+        $( document ).ready(function() {
+            $('.like-form').submit(function(e){
+                e.preventDefault()
+                
+                const post_id = $(this).attr('id')
+                const likeText = $(`.like-btn${post_id}`).text()
+                const likeStr = $.trim(likeText)
+                const url = $(this).attr('action')
+                
+                let res;
+                const likes = $(`.like-count${post_id}`).text()
+                const likeCount = parseInt(likes)
+                // var data = [{"csrfmiddlewaretoken": $('input[name=csrfmiddlewaretoken]').val(),},
+                //             {"post_id" : post_id}];
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    // dataType: 'json', // тип передоваемой строки 
+                    // contentType: "application/json; charset=utf-8", 
+                    // data: JSON.stringify({
+                    //     data
+                    // }), 
+                    data: {
+                        'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+                        'post_id':post_id,
+                    },
+                    success: function(response) {
+                        if(likeStr === 'Unlike') {
+                            $(`.like-btn${post_id}`).text('Like')
+                            res = likeCount - 1
+                        } else {
+                            $(`.like-btn${post_id}`).text('Unlike')
+                            res = likeCount + 1
+                        }
+
+                        $(`.like-count${post_id}`).text(res)
+                    },
+                })
+
+            })
+        });
+    </script>
+{% endblock scripts %}

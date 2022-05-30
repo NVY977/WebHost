@@ -1,0 +1,219 @@
+<!DOCTUPE html>
+{% load static %}
+<html lang="ru">
+    <head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="css/styles.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Login</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class = "container">
+                <div class="header_inner">
+                    <div class="logo">
+                        <h1>NVY</h1>
+                    </div>
+                    <nav class="nav">
+                        <a class = "nav_link" href="AboutUs.html">О нас</a>
+                        <a class = "nav_link" href="Shop.html">Магазин</a>
+                        <a class = "nav_link" href="Contacts.html">Контакты</a>
+                        <a class = "nav_link" href="index.html">Блог</a>
+                        <a class = "nav_link_login" href="Login.html">Войти</a>
+                    </nav>
+                    
+                </div>
+            </div>
+        </header>
+        <div class="intro">
+            <div class="container">
+                <div class="intro_inner">
+                    <h1 class="intro_title">Login</h1>
+                   <a class = "btn" href="AboutUs.html">Learn more</a>
+                </div>
+            </div>
+        </div>
+        <section class = "section">
+            <div class="conteiner">
+                
+                <div class="section_header">
+                    <h2 class="section_title">Регистрация</h2>
+                    <div class="section_text">Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса. Еще одним фирменным знаком стал норвежский флаг, представляющий самую северную страну Европы, место рождения некоторых великих исследователей 20-го века, а также край с экстремальными погодными условиями и великолепным ландшафтом. Сложное на первый взгляд название звучит довольно просто: «Напапири».</div>
+                  <section class = "section">
+                    <div class="conteiner">
+                        <div class="section_header">
+                            <label>Выберите язык : </label>
+                            <select style="" id="langSelect">
+                                <option>rus</option>
+                                <option>eng</option>
+                            </select>
+                            <div>
+                                <button id="btn">Отправить</button>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>  
+            </div><!--!container -->
+        </section>
+
+    
+    <form id ="regForm" class = "form" action="" method="POST">
+      {% csrf_token %} 
+		  <h1 title="Форма регистрации на сайте">Регистрация</h1>
+    		<div class="group">
+    			<label for="username">Имя пользователя:</label>
+    			<input type="text" id="name" name="name" maxlength="8" required>
+    		</div>
+        <div class="group">
+			    <label for="username">Возраст:</label>
+			    <input type="number" id="age" name="age" max = "100" min = "10" required>
+    		</div>
+        <div class="group">
+    			<label for="mail">Адрес электронной почты:</label>
+    			<input type="email" id="mail" name="mail" required>
+    		</div>
+    		<div class="group">
+    			<label for="">Пароль:</label>
+    			<input type="password" id="pass" name="pass" pattern="^[a-zA-Z0-9]+$" minlength="5" maxlength="20" required>
+    		</div>
+    		<div class="group">
+    			<center><button>Регистрация</button></center>
+    		</div>
+	  </form>
+
+        
+      <footer class="footer">
+            <div class="container">
+                <div class="footer_inner">
+                    <div class="footer_col">
+                        <div class="footer_logo">NVY</div>
+                    </div>
+                    <div class="footer_text">Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса. Еще одним фирменным знаком стал норвежский флаг, представляющий самую северную страну Европы, место рождения некоторых великих исследователей 20-го века, а также край с экстремальными погодными условиями и великолепным ландшафтом. Сложное на первый взгляд название звучит довольно просто: «Напапири».</div>
+                </div>
+                <div class="footer_social">
+                    <div class="footer_social_header">
+                    <b>15k</b> followers
+                    </div>
+                    <div class="footer_social_content">
+                        Follow us:
+                        <a href = "#">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+      <script>
+            
+        const name = document.getElementById("name");
+        name.addEventListener("input", function (event) {
+            if (name.validity.typeMismatch) {
+                name.setCustomValidity("Введите правильное имя!");
+            } 
+            else if (name.validity.tooLong){
+                name.setCustomValidity("Достигнут лимит!");
+            }
+            else {
+                name.setCustomValidity("");
+            }
+        });
+        
+        const age = document.getElementById("age");
+        age.addEventListener("input", function (event) {
+            if (age.validity.typeMismatch) {
+                age.setCustomValidity("Введите правильно имя!");
+            } 
+            else if(age.validity.rangeOverflow){
+                age.setCustomValidity("Введите правильное число!");
+            }
+            else if(age.validity.rangeUnderflow){
+                age.setCustomValidity("Введите правильное число!");
+            }
+            else {
+                age.setCustomValidity("");
+            }
+        });
+            
+        const email = document.getElementById("mail");
+        email.addEventListener("input", function (event) {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("Введите правильно (@)!");
+            } else {
+                email.setCustomValidity("");
+            }
+        });
+            
+        
+        const pass = document.getElementById("pass");
+        pass.addEventListener("input", function (event) {
+            if (pass.validity.patternMismatch) {
+                pass.setCustomValidity("Введите правильный пароль[a-z,A-Z,0-9]!");
+            } 
+            else if (pass.validity.tooLong){
+                pass.setCustomValidity("Достигнут лимит!");
+            }
+            else {
+                pass.setCustomValidity("");
+            }
+        });
+
+        // Application Programming Interface (API), или программный интерфейс приложения — это набор инструментов, который позволяет одним программам работать с другими. 
+        const form = document.getElementById("regForm");
+        form.addEventListener("submit", e => {
+               e.preventDefault();
+              
+               var nick = document.getElementById("name").value;
+               var mail = document.getElementById("mail").value;
+               var age = document.getElementById("age").value;
+               var pass = document.getElementById("pass").value;
+          
+               var msg = 'Hello!%0A<b>Your nickname : </b>'+nick+'%0A<b>Your eMail : </b>'+mail +
+                 '%0A<b>Your age : </b>'+age+'%0A<b>Your eMail : </b>'+pass ;
+               var chatid = "-1001545188873";
+               var token = "5130651792:AAFMydgoQOYD9qbqJI77ZzYtjb9itJEDHxY";
+          
+               var z=$.ajax({ 
+                 type: "POST", //http запрос  — создание новых записей. 
+                 url: "https://api.telegram.org/bot"+token+"/sendMessage?chat_id="+chatid,
+                 data: "parse_mode=html&text="+msg, 
+             }); 
+          console.log("NICE WORK!")
+        })
+        </script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(document).ready(function(){
+         // localStorage.clear()
+          if (localStorage.getItem('visits') == null)
+          {
+            // Добавляем или изменяем значение:
+            localStorage.setItem('visits', 0)
+          }
+          else{
+            // Выводим его в консоль:
+            var langSelected = localStorage.getItem('lang');
+            var lastVisitDate = localStorage.getItem('visitDate');
+          }
+          var visited = parseInt(localStorage.getItem('visits'));
+          visited += 1;
+          localStorage.setItem('visits', visited);
+          alert("Кол-во посещений:" + visited);
+      
+          var button = document.querySelector("#btn");
+          button.addEventListener("click", function(){
+            var selectedLang = $('#langSelect').val();
+            localStorage.setItem('lang', selectedLang);
+            localStorage.setItem('visitDate', new Date());
+          });
+        });
+      </script>
+    </body>
+</html>

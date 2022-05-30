@@ -1,0 +1,108 @@
+<!DOCTUPE html>
+{% load static %}
+<html lang="ru">
+    <head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="css/styles.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>AboutUs | {% block title %}{% endblock title %}</title>
+    </head>
+    <body>
+        
+        <header class="header">
+            <div class = "container">
+                <div class="header_inner">
+                    <div class="logo">
+                        <h1>NVY</h1>
+                    </div>
+                    <nav class="nav">
+                        <a class = "nav_link" href="AboutUs.html">О нас</a>
+                        <a class = "nav_link" href="Shop.html">Магазин</a>
+                        <a class = "nav_link" href="Contacts.html">Контакты</a>
+                        <a class = "nav_link" href="index.html">Блог</a>
+                        <a class = "nav_link_login" href="Login.html">Войти</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <div class="intro">
+            <div class="container">
+                <div class="intro_inner">
+                    <h1 class="intro_title">About US</h1>
+                </div>
+            </div>
+        </div>
+    <!-- Section - крупный смысловой раздел -->
+    <!-- Div - выделение элемента -->
+       <section class = "section">
+            <div class="conteiner">
+                
+                <div class="section_header">
+                    <h2 class="section_title">Что мы можем рассказать о себе?</h2>
+                    <div class="section_text">Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса. Еще одним фирменным знаком стал норвежский флаг, представляющий самую северную страну Европы, место рождения некоторых великих исследователей 20-го века, а также край с экстремальными погодными условиями и великолепным ландшафтом. Сложное на первый взгляд название звучит довольно просто: «Напапири».</div>
+                </div>
+            </div><!--!container -->
+        </section>
+           <!-- The video -->
+        <video autoplay muted loop id="myVideo">
+            <source src="{% static 'video/clothes.mp4'  %}" type="video/mp4">
+        </video>
+        <div class="content">
+                <h1>Heading</h1>
+                <p>Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса////Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса</p>
+                <!-- Use a button to pause/play the video with JavaScript -->
+                <button id="myBtn" onclick="myFunction()">Pause</button>
+        </div>
+        <!-- Optional: some overlay text to describe the video -->
+      <div class = "ui container">
+        {% block content %}
+        {% endblock content %}
+      </div>
+         <script>
+             // Get the video
+             var video = document.getElementById("myVideo");
+
+             // Get the button
+             var btn = document.getElementById("myBtn");
+
+             // Pause and play the video, and change the button text
+             function myFunction() {
+                if (video.paused) {
+                video.play();
+                btn.innerHTML = "Pause";
+                } else {
+                video.pause();
+                btn.innerHTML = "Play";
+                }
+            }
+        </script>       
+            
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_inner">
+                    <div class="footer_col">
+                        <div class="footer_logo">NVY</div>
+                    </div>
+                    <div class="footer_text">Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса////Россет назвала свой бренд Napapijri. В переводе с финского слово означает «Северный полярный круг». Логотип, где верхняя часть светлая, а нижняя темная, символизирует Северный и Южный полюса</div>
+                </div>
+                <div class="footer_social">
+                    <div class="footer_social_header">
+                    <b>15k</b> followers
+                    </div>
+                    <div class="footer_social_content">
+                        Follow us:
+                        <a href = "#">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
